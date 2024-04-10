@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-fast-api
+  labels:
+    app: k8s-fast-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-fast-api
+  template:
+    metadata:
+      labels:
+        app: k8s-fast-api
+    spec:
+      containers:
+      - name: k8s-fast-api
+        image: bansikah/k8s-fast-api:1.0
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 200m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
+        
