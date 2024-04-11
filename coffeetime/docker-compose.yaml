@@ -1,0 +1,21 @@
+version: "3"
+services:
+  website:
+    image: nginx
+    ports:
+      - "0.0.0.0:8081:80"
+    restart: always
+  website2:
+    image: nginx
+    ports:
+      - "0.0.0.0:8082:80"
+    restart: always
+    networks: 
+      coffee:
+        ipv4_address: 10.100.0.2
+networks:
+  coffee:
+    ipam: #ip address manager
+      driver: default #default network is the brigde
+      config:
+        - subnet: "10.100.0.0/16"
