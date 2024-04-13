@@ -80,3 +80,11 @@
    kubectl version
    helm version
    ```
+8. Multipass commands
+```
+multipass unmount k3s:/home/adorsys 
+multipass info <vmname>
+multipass mount $(pwd) k3s:/etc/crs 
+multipass exec k3s -- ls /etc/crs -la
+multipass exec k3s -- pwd
+```
