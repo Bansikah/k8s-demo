@@ -12,30 +12,27 @@ services:
       - quiz-app
       - k8s-fast-api
     networks:
-      - backend
-      - frontend
+      - netcon
     restart: unless-stopped
 
   random-group-generator:
     image: bansikah/random-group-generator:1.0
     networks:
-      - frontend
+      - netcon
     restart: unless-stopped
 
   quiz-app:
     image: bansikah/quiz-app-spring-boot:v1.0
     networks:
-      - backend
+      - netcon
     restart: unless-stopped
 
   k8s-fast-api:
     image: bansikah/k8s-fast-api:1.0
     networks:
-      - backend
+      - netcon
     restart: unless-stopped
 
 networks:
-  backend:
-    driver: bridge
-  frontend:
-    driver: bridge
+  netcon:
+

@@ -5,13 +5,12 @@ services:
     image: nginx:latest
     container_name: nginx
     ports:
-      - "80:80"  # Expose port 80 of the Nginx container
+      - "80:80"  
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Read-only mount for configuration
-    depends_on:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro  
       - random-group-generator
       - quiz-app-spring-boot
-      - k8s-fast-api  # Ensure Nginx starts after applications
+      - k8s-fast-api  
 
   random-group-generator:
     image: bansikah/random-group-generator:1.0
