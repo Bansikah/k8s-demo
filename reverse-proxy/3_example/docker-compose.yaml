@@ -7,7 +7,7 @@ services:
     ports:
       - "80:80"  # Expose port 80 of the Nginx container
     volumes:
-      - /home/adorsys/Desktop/dev/personal-projects/k8s-tuts/k8s-demo/reverse-proxy/3_example/nginx.conf:/etc/nginx/nginx.conf:ro  # Read-only mount for configuration
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Read-only mount for configuration
     depends_on:
       - random-group-generator
       - quiz-app-spring-boot
